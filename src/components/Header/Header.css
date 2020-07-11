@@ -1,0 +1,35 @@
+.header-container {
+  margin: 0 auto;
+  margin-top: 30px;
+  font-size: 3.8rem;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+  background: linear-gradient(
+    90deg,
+    rgba(69, 255, 243, 1) 25%,
+    rgba(0, 255, 20, 1) 59%,
+    rgba(228, 255, 0, 1) 86%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media screen and (max-width: 960px) {
+  .header-container {
+    font-size: 3.3rem;
+  }
+}
+@media screen and (max-width: 832px) {
+  .header-container {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (max-width: 707px) {
+  .header-container {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 632px) {
+  .header-container {
+    font-size: 2rem;
+  }
+}
