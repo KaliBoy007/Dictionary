@@ -14,7 +14,7 @@ const Definitions = ({ data, keyid }) => {
       });
     });
   } else {
-    return <div>Sorry! No Match!</div>;
+    return <div className="td-container">Sorry! No Match!</div>;
   }
 };
 

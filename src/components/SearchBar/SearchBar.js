@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./SearchBar.css";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDefinitions } from "../../actions";
 class SearchBar extends Component {
@@ -10,9 +11,9 @@ class SearchBar extends Component {
       alert("enter any text!");
       return;
     } else {
-      this.props.getDefinitions(this.state.word);
       this.setState({ word: "" });
       this.mainForm.reset();
+      this.props.getDefinitions(this.state.word);
     }
   };
   render() {
@@ -37,9 +38,13 @@ class SearchBar extends Component {
               <span className="sb-content-name">Enter any word here!</span>
             </label>
           </div>
-          <a href="/" className="sb-button" onClick={this.onFormSubmit}>
+          <Link
+            to={`/${this.state.word}`}
+            className="sb-button"
+            onClick={this.onFormSubmit}
+          >
             Search!
-          </a>
+          </Link>
         </form>
         <br />
       </>
@@ -47,8 +52,4 @@ class SearchBar extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return { definitions: state.definitions };
-};
-
-export default connect(mapStateToProps, { getDefinitions })(SearchBar);
+export default connect(null, { getDefinitions })(SearchBar);

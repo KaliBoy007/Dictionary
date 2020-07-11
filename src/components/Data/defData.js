@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-//import Definitions from "./definitions";
+import { getDefinitions } from "../../actions";
 import "./dedata.css";
+import Definitions from "./definitions";
 
 class DefData extends Component {
+  componentDidMount() {
+    this.result = [];
+    this.resultid = [];
+  }
   result = [];
   resultid = [];
   nestRemover = (def) => {
@@ -66,24 +71,6 @@ class DefData extends Component {
     }
   };
 
-  Definitions = (data, keyid) => {
-    if (data) {
-      let i = 0;
-      return data.map((definition) => {
-        return definition.map((sentence) => {
-          return (
-            <div className="td-wrapper" key={keyid[i++]}>
-              <div className="td-container">{sentence}.</div>
-              <br />
-            </div>
-          );
-        });
-      });
-    } else {
-      return <div className="td-container">Sorry! No Match!</div>;
-    }
-  };
-
   render() {
     this.nestRemover(this.props.definitions);
     this.nestRemoverId(this.props.definitions);
@@ -91,8 +78,7 @@ class DefData extends Component {
     if (this.props.definitions) {
       return (
         <div className="def-container">
-          {this.Definitions(this.result, this.resultid)}
-          {/* <Definitions data={this.result} keyid={this.resultid} /> */}
+          <Definitions data={this.result} keyid={this.resultid} />
         </div>
       );
     } else {
@@ -104,4 +90,4 @@ class DefData extends Component {
 const mapStateToProps = (state) => {
   return { definitions: state.definitions };
 };
-export default connect(mapStateToProps)(DefData);
+export default connect(mapStateToProps, { getDefinitions })(DefData);
