@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./SearchBar.css";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getDefinitions } from "../../actions";
 class SearchBar extends Component {
@@ -33,18 +32,20 @@ class SearchBar extends Component {
               onChange={(event) => {
                 this.setState({ word: event.target.value });
               }}
+              required
             />
             <label className="sb-label-name">
               <span className="sb-content-name">Enter any word here!</span>
             </label>
           </div>
-          <Link
-            to={`/${this.state.word}`}
-            className="sb-button"
+          <a
+            type="submit"
+            href="/"
+            className="sb-button button"
             onClick={this.onFormSubmit}
           >
             Search!
-          </Link>
+          </a>
         </form>
         <br />
       </>

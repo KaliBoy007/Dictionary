@@ -13,8 +13,6 @@ const Definitions = ({ data, keyid }) => {
         );
       });
     });
-  } else {
-    return <div className="td-container">Sorry! No Match!</div>;
   }
 };
 

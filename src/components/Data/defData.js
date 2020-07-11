@@ -5,10 +5,6 @@ import "./dedata.css";
 import Definitions from "./definitions";
 
 class DefData extends Component {
-  componentDidMount() {
-    this.result = [];
-    this.resultid = [];
-  }
   result = [];
   resultid = [];
   nestRemover = (def) => {
@@ -72,9 +68,11 @@ class DefData extends Component {
   };
 
   render() {
+    this.result = [];
+    this.resultid = [];
     this.nestRemover(this.props.definitions);
     this.nestRemoverId(this.props.definitions);
-    console.log(this.props.definitions);
+    // console.log(this.props.definitions);
     if (this.props.definitions) {
       return (
         <div className="def-container">
@@ -82,7 +80,21 @@ class DefData extends Component {
         </div>
       );
     } else {
-      return <div className="def-container">Sorry! No match Found!</div>;
+      return (
+        <div className="er-container">
+          <div className="er-wrapper">
+            <div className="err-container">
+              <span role="img" aria-label="faint">
+                😵
+              </span>
+              Sorry! No match Found!
+              <span role="img" aria-label="faint">
+                😵
+              </span>
+            </div>
+          </div>
+        </div>
+      );
     }
   }
 }
