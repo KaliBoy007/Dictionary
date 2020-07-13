@@ -7,8 +7,7 @@ const Definitions = ({ data, keyid }) => {
       return definition.map((sentence) => {
         return (
           <div className="td-wrapper" key={keyid[i++]}>
-            <div className="td-container">{sentence}.</div>
-            <br />
+            <div className="td-container">{sentence}.</div>{" "}
           </div>
         );
       });

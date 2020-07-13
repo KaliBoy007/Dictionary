@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./SearchBar.css";
 import { connect } from "react-redux";
 import { getDefinitions } from "../../actions";
+import { Link } from "react-router-dom";
 class SearchBar extends Component {
   state = { word: null };
   onFormSubmit = (event) => {
@@ -15,9 +16,11 @@ class SearchBar extends Component {
       this.props.getDefinitions(this.state.word);
     }
   };
+  options = ["Definitions", "Pronunciations", "Examples"];
+  defaultOption = this.options[0];
   render() {
     return (
-      <>
+      <div className="sbmain">
         <form
           ref={(element) => (this.mainForm = element)}
           className="sb-container"
@@ -38,17 +41,20 @@ class SearchBar extends Component {
               <span className="sb-content-name">Enter any word here!</span>
             </label>
           </div>
-          <a
-            type="submit"
-            href="/"
-            className="sb-button button"
-            onClick={this.onFormSubmit}
-          >
-            Search!
-          </a>
+
+          <div className="linkwrapper">
+            <Link
+              to={`/Dictionary/${this.state.word}`}
+              className="sb-button button"
+              onClick={this.onFormSubmit}
+            >
+              Search!
+            </Link>
+          </div>
         </form>
+
         <br />
-      </>
+      </div>
     );
   }
 }

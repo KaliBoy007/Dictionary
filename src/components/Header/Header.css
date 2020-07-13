@@ -1,17 +1,18 @@
 .header-container {
   margin: 0 auto;
-  margin-top: 30px;
+  padding: 10px;
   font-size: 3.8rem;
   text-align: center;
-  font-family: "Dancing Script", cursive;
-  background: linear-gradient(
+  font-family: "Oswald", sans-serif;
+  color: #ff6709;
+  /* background: linear-gradient(
     90deg,
     rgba(69, 255, 243, 1) 25%,
     rgba(0, 255, 20, 1) 59%,
     rgba(228, 255, 0, 1) 86%
   );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
 }
 @media screen and (max-width: 960px) {
   .header-container {

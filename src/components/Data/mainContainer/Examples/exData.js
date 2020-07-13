@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDefinitions } from "../../actions";
-import "./dedata.css";
-import Definitions from "./definitions";
+import "../Definition/dedata.css";
+import Examples from "./examples";
 
-class DefData extends Component {
+class ExData extends Component {
   result = [];
   resultid = [];
   nestRemover = (def) => {
@@ -13,11 +12,15 @@ class DefData extends Component {
         def.forEach(this.nestRemover);
       } else if (typeof def === "object") {
         Object.keys(def).forEach((key) => {
-          if (key === "subsenses") {
-            return;
-          }
-          if (key === "definitions") {
-            this.result.push(def[key]);
+          if (key === "text") {
+            if (
+              def[key] !== "Noun" &&
+              def[key] !== "Verb" &&
+              def[key] !== "Interjection" &&
+              def[key] !== "Conjunction"
+            ) {
+              this.result.push(def[key]);
+            }
           } else {
             this.nestRemover(def[key]);
           }
@@ -66,33 +69,25 @@ class DefData extends Component {
       }
     }
   };
-
+  modifiedResult = (result) => {
+    this.result = [...new Set(result)];
+  };
   render() {
     this.result = [];
     this.resultid = [];
     this.nestRemover(this.props.definitions);
     this.nestRemoverId(this.props.definitions);
-    // console.log(this.props.definitions);
-    if (this.props.definitions) {
+    this.modifiedResult(this.result);
+    if (this.result.length > 0) {
       return (
         <div className="def-container">
-          <Definitions data={this.result} keyid={this.resultid} />
+          <Examples data={this.result} keyid={this.resultid} />
         </div>
       );
     } else {
       return (
-        <div className="er-container">
-          <div className="er-wrapper">
-            <div className="err-container">
-              <span role="img" aria-label="faint">
-                😵
-              </span>
-              Sorry! No match Found!
-              <span role="img" aria-label="faint">
-                😵
-              </span>
-            </div>
-          </div>
+        <div className="ntg-container">
+          😕Nothing to show here.Search anything different or reload the page!😕
         </div>
       );
     }
@@ -102,4 +97,4 @@ class DefData extends Component {
 const mapStateToProps = (state) => {
   return { definitions: state.definitions };
 };
-export default connect(mapStateToProps, { getDefinitions })(DefData);
+export default connect(mapStateToProps)(ExData);

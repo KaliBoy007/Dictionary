@@ -1,7 +1,7 @@
 .def-container,
 .er-container {
+  color: aliceblue;
   margin: 0 auto;
-  margin-top: 4.2rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,6 +20,17 @@
   text-transform: capitalize;
   font-family: "Jost", sans-serif;
 }
+@media screen and (max-width: 500px) {
+  .td-container {
+    font-size: 1rem;
+  }
+}
 .err-container {
   text-align: center;
+}
+.ntg-container {
+  text-align: center;
+  font-size: 1.4rem;
+  color: aliceblue;
+  font-family: "Jost", sans-serif;
 }

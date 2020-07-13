@@ -1,4 +1,8 @@
+.sbmain {
+  background-color: rgb(3, 28, 59);
+}
 .sb-container {
+  background-color: rgb(3, 28, 59);
   font-style: italic;
   max-width: 1200px;
   width: 95%;
@@ -7,6 +11,7 @@
 }
 
 .sb-form {
+  background-color: rgb(3, 28, 59);
   width: 60%;
   height: 50px;
   margin: 0 auto;
@@ -14,6 +19,7 @@
   overflow: hidden;
 }
 .sb-form input {
+  background-color: rgb(3, 28, 59);
   cursor: text;
   outline: rgb(255, 0, 0);
   width: 100%;
@@ -24,6 +30,7 @@
   outline: none;
 }
 .sb-form label {
+  background-color: rgb(3, 28, 59);
   background: transparent;
   pointer-events: none;
   position: absolute;
@@ -59,6 +66,7 @@
   transform: translateX(-100%);
 }
 .sb-content-name {
+  background-color: rgb(3, 28, 59);
   color: rgba(255, 255, 255, 0.281);
   position: absolute;
   bottom: 5px;
@@ -74,16 +82,21 @@
 .sb-form input:focus + .sb-label-name::after {
   transform: translateX(0%);
 }
-.button-wrapper {
+.linkwrapper {
   position: relative;
+  margin-top: 20px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .sb-button {
   cursor: pointer;
   position: absolute;
   font-family: "Dancing Script", cursive;
-  top: 28%;
+  /* top: 28%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   width: 100px;
   height: 40px;
   text-align: center;
@@ -99,41 +112,6 @@
   font-style: normal;
 }
 
-@media screen and (max-width: 832px) {
-  .sb-button {
-    top: 26%;
-  }
-}
-@media screen and (max-width: 707px) {
-  .sb-button {
-    top: 24%;
-  }
-}
-@media screen and (max-width: 632px) {
-  .sb-button {
-    top: 22.5%;
-  }
-}
-@media screen and (max-width: 505px) {
-  .sb-button {
-    top: 28%;
-  }
-}
-@media screen and (max-width: 375px), screen and (max-height: 667px) {
-  .sb-button {
-    top: 29%;
-  }
-}
-@media screen and (max-width: 360px) {
-  .sb-button {
-    top: 31%;
-  }
-}
-@media screen and (max-width: 312px) {
-  .sb-button {
-    top: 33%;
-  }
-}
 .sb-button:hover {
   animation: animate 8s linear infinite;
 }
@@ -164,4 +142,9 @@
   filter: blur(10px);
   opacity: 0.7;
   animation: animate 8s linear infinite;
+}
+
+.drpdn {
+  margin: 10px auto;
+  width: 180px;
 }
