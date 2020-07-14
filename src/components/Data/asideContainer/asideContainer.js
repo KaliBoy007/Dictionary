@@ -20,7 +20,11 @@ class AsideContainer extends Component {
               Etymologies
             </Link>
           </li>
-          <li>Pronunciations</li>
+          <li>
+            <Link to={`/Dictionary/${this.props.word}/pronunciations`}>
+              Pronunciations
+            </Link>
+          </li>
         </ul>
         <div className="instruct">Click any one of 'em!!</div>
       </aside>
