@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header/Header";
 import SearchBar from "./SearchBar/SearchBar";
-//import DefData from "../components/Data/defData";
 import { Router, Route, Switch } from "react-router-dom";
 import TotalData from "./Data/TotalData";
 import DefData from "../components/Data/mainContainer/Definition/defData";
@@ -17,6 +16,9 @@ const LineLoader = () => {
 };
 class App extends Component {
   render() {
+    if (window.performance.navigation.type == 1) {
+      history.push("/Dictionary");
+    }
     return (
       <div className="container">
         <Router history={history}>

@@ -24,7 +24,9 @@ class ExData extends Component {
               def[key] !== "Noun" &&
               def[key] !== "Verb" &&
               def[key] !== "Interjection" &&
-              def[key] !== "Conjunction"
+              def[key] !== "Conjunction" &&
+              def[key] != "Pronounn" &&
+              def[key] != "Adverb"
             ) {
               this.result.push(def[key]);
             }
