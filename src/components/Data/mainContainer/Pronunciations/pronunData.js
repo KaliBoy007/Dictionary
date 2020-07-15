@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ReactAudioPlayer from "react-audio-player";
 import "./pronun.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-class DefData extends Component {
+class PronunData extends Component {
+  componentDidMount() {
+    AOS.init({
+      duration: 1000,
+    });
+  }
   result = [];
   resultid = [];
   nestRemover = (def) => {
@@ -74,7 +81,7 @@ class DefData extends Component {
     console.log(this.result);
     if (this.result.length > 0) {
       return (
-        <div className="def-container">
+        <div className="def-container" data-aos="fade-right">
           <div className="pronun-wrapper">
             <ReactAudioPlayer
               src={this.result[0]}
@@ -86,7 +93,7 @@ class DefData extends Component {
       );
     } else {
       return (
-        <div className="ntg-container">
+        <div className="ntg-container" data-aos="fade-up">
           😕Nothing to show here.Search anything different or reload the page!😕
         </div>
       );
@@ -97,4 +104,4 @@ class DefData extends Component {
 const mapStateToProps = (state) => {
   return { definitions: state.definitions };
 };
-export default connect(mapStateToProps)(DefData);
+export default connect(mapStateToProps)(PronunData);

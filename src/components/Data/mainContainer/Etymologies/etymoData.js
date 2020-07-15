@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../Definition/dedata.css";
 import Etymologies from "./etymologies";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 class EtymoData extends Component {
+  componentDidMount() {
+    AOS.init({
+      duration: 1000,
+    });
+  }
   result = [];
   resultid = [];
   nestRemover = (def) => {
@@ -70,13 +77,13 @@ class EtymoData extends Component {
     this.nestRemoverId(this.props.definitions);
     if (this.result.length > 0) {
       return (
-        <div className="def-container">
+        <div className="def-container" data-aos="fade-right">
           <Etymologies data={this.result} keyid={this.resultid} />
         </div>
       );
     } else {
       return (
-        <div className="ntg-container">
+        <div className="ntg-container" data-aos="fade-up">
           😕Nothing to show here.Search anything different or reload the page!😕
         </div>
       );

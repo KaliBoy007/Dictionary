@@ -3,7 +3,14 @@ import "./SearchBar.css";
 import { connect } from "react-redux";
 import { getDefinitions } from "../../actions";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 class SearchBar extends Component {
+  componentDidMount() {
+    AOS.init({
+      duration: 1000,
+    });
+  }
   state = { word: null };
   onFormSubmit = (event) => {
     event.preventDefault();
@@ -26,7 +33,7 @@ class SearchBar extends Component {
           className="sb-container"
           onSubmit={this.onFormSubmit}
         >
-          <div className="sb-form">
+          <div className="sb-form" data-aos="zoom-in">
             <input
               id="maininput"
               type="text"
@@ -42,7 +49,7 @@ class SearchBar extends Component {
             </label>
           </div>
 
-          <div className="linkwrapper">
+          <div className="linkwrapper" data-aos="fade-up">
             <Link
               to={`/Dictionary/${this.state.word}`}
               className="sb-button button"
