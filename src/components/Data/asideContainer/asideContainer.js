@@ -34,7 +34,7 @@ class AsideContainer extends Component {
           </li>
         </ul>
         <div className="instruct" data-aos="fade-up" data-aos-delay="650">
-          Click any one of 'em!!
+          Click any one of 'em!
         </div>
       </aside>
     );
